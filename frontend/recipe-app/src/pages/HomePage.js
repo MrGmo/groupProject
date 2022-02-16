@@ -1,16 +1,24 @@
 import { Typography, Box, TextField, Button } from "@mui/material"
 import {useState} from 'react'
+import SearchResults from "../components/SearchResults"
 
 
 const HomePage = () => {
-
     const [userInput, setUserInput] = useState(null)
+    const [searchResults, setSearchResults] = useState(null)
 
+   
+    const searchSubmit = async () => {
 
-    const postToBackend = () => {
-      console.log(userInput)
+        if (userInput){
+            const fetchRecipes = await fetch (`${process.env.REACT_APP_SPOONACULAR_URL}${userInput}`)
+             let data = await fetchRecipes.json()
+            setSearchResults(data.results)
+        }
     }
-
+    if (searchResults){
+        console.log(searchResults)
+    }
 
     return (
             <Box sx={{ paddingTop: '10%'}}>
@@ -20,10 +28,14 @@ const HomePage = () => {
                         <h3 className = 'bold-text'>RECIPES</h3>
                     </Box>
                  <Box sx={{display: 'flex', alignItems: 'center', width: '60vh'}}>
-                 <TextField fullWidth className='search-input' label="What are you craving?" sx={{backgroundColor: 'background.paper', color: 'primary'}} onChange={e => setUserInput(e.target.value)}  />
-                 <Button variant="contained" size="large" sx={{fontSize: '22px'}}>SEARCH</Button>
+                     <TextField fullWidth className='search-input' onChange={(e) => setUserInput(e.target.value)}label="What are you craving?" sx={{backgroundColor: 'background.paper', color: 'primary'}} onChange={e => setUserInput(e.target.value)}  />
+                     <Button variant="contained" onClick={() => searchSubmit()} size="large" sx={{fontSize: '22px'}}>SEARCH</Button>
                  </Box>
                 </Box>
+                { searchResults && 
+                
+                    <SearchResults searchResults={searchResults}/>
+                }
             </Box>
     )
 }
