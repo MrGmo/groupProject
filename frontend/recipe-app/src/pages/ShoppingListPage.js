@@ -1,10 +1,8 @@
-
-
 const ShoppingListPage = () => {
-    return (
-        <h1>Shopping List Page</h1>
-    );
-  };
+  return (
+    <h1>Shopping List Page</h1
+  );
+};
   
-  export default ShoppingListPage;
+export default ShoppingListPage;
   
