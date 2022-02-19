@@ -1,8 +1,10 @@
 import './App.css';
-import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles/'
 import HomePage from './pages/HomePage';
+import RecipesPage from './pages/RecipesPage';
+import ShoppingListPage from './pages/ShoppingListPage';
+import FriendsPage from './pages/FriendsPage';
 import NavBar from './components/NavBar';
 
 // MUI THEME
@@ -30,7 +32,6 @@ export const theme = createTheme({
 
 
 function App() {
-
   
   return (
     <div className="App">
@@ -40,7 +41,10 @@ function App() {
       <Router>  
         <NavBar/>
           <Routes>
-          <Route path="/" element={<HomePage/>}/>
+            <Route path="/" element={<HomePage/>}/>
+            <Route path="/recipes" element={<RecipesPage/>}/>
+            <Route path="/shopping_list" element={<ShoppingListPage/>}/>
+            <Route path="/friends" element={<FriendsPage/>}/>
           </Routes>
       </Router>
       </ThemeProvider>

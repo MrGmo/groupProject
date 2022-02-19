@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import { AppBar, Toolbar, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, Box } from "@mui/material";
 import NavButton from "./buttons/NavButton";
 
 const NavBar = () => {
-  const navigate = useNavigate();
 
   return (
     <Box sx={{ flexGrow: 2 }}>
