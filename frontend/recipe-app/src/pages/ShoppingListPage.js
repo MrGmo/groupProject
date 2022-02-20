@@ -1,9 +1,18 @@
-import { Container, Grid, Checkbox, Divider } from "@mui/material";
+import {
+  Container,
+  Grid,
+  Checkbox,
+  Divider,
+  TextField,
+  Button,
+} from "@mui/material";
 import { useState } from "react";
 import NoFoodOutlinedIcon from "@mui/icons-material/NoFoodOutlined";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
 
 const ShoppingListPage = () => {
+  const [newItemName, setNewItemName] = useState("");
+  const [newItemQuantity, setNewItemQuantity] = useState("");
   // Temporary values to get something on screen for now
   const [shoppingList, setShoppingList] = useState([
     {
@@ -39,8 +48,23 @@ const ShoppingListPage = () => {
     setShoppingList(newList);
   };
 
-  const handleAddItem = (newItem) => {
+  const handleChangeName = (e) => {
+    setNewItemName(e.target.value);
+  };
+
+  const handleChangeQuantity = (e) => {
+    setNewItemQuantity(e.target.value);
+  };
+
+  const handleAddItem = () => {
+    const newItem = {
+      purchased: false,
+      name: newItemName,
+      quantity: newItemQuantity,
+    };
     setShoppingList([...shoppingList, newItem]);
+    setNewItemQuantity("");
+    setNewItemName("");
   };
 
   const renderShoppingListItems = () => {
@@ -70,12 +94,39 @@ const ShoppingListPage = () => {
   };
 
   return (
-    <Container color="white">
+    <Container>
       <h1>My Shopping List</h1>
       {/* position on the page */}
       <Grid container spacing={2}>
         {/* Each item row*/}
         {renderShoppingListItems()}
+      </Grid>
+      <h1>Oh and Don't Forget...</h1>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <TextField
+            fullWidth
+            id="new-food-name"
+            label="Name"
+            variant="filled"
+            onChange={handleChangeName}
+          />
+        </Grid>
+        <Grid item xs={4}>
+          <TextField
+            fullWidth
+            bgcolor="#000"
+            id="new-food-quantity"
+            label="How Much?"
+            variant="filled"
+            onChange={handleChangeQuantity}
+          />
+        </Grid>
+        <Grid item xs={4}>
+          <Button onClick={handleAddItem} size="large" variant="contained">
+            Remember
+          </Button>
+        </Grid>
       </Grid>
     </Container>
   );
