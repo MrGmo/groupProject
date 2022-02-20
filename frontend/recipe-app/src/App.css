@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-
-html {
-  font-size: 62.5%;
-}
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 
 * {
-  font-family: 'Fredoka One', cursive !important;
+  font-family: "Fredoka One", cursive !important;
 }
 
 .App {
@@ -14,16 +10,23 @@ html {
 
 .background-div {
   /* background-color: #5cdb95; */
-  background: #5cdb95;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #05386b, #5cdb95);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #05386b, #5cdb95); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #5cdb95; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #05386b,
+    #5cdb95
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #05386b,
+    #5cdb95
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 100vh;
 }
 
-
 .bold-text {
   font-size: 8rem;
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
   color: #edf5e1;
   margin: 0px;
 }
