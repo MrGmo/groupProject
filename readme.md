@@ -22,6 +22,10 @@ An app that allows users to search for recipes they want to make, and then find 
 
 ---
 
+### Resources
+
+- [Material UI Documentation](https://mui.com/docs)
+
 ### Tech Stack
 
 - React
